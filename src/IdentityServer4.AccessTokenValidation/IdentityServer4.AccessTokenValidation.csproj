@@ -25,7 +25,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="../icon.jpg" Pack="true" Visible="false" PackagePath="" />
+		<None Include="../../icon.jpg" Pack="true" Visible="false" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -37,8 +37,8 @@
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.20" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.6.40">
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="minver" Version="4.3.0" PrivateAssets="All" />
 	</ItemGroup>
