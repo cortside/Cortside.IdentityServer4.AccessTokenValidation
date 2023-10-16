@@ -1,14 +1,13 @@
 ﻿// Copyright (c) Dominick Baier & Brock Allen. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Net.Http;
 
 namespace Tests.Util
 {
@@ -27,20 +26,11 @@ namespace Tests.Util
                 {
                     app.UseAuthentication();
 
-                    app.Use((context, next) =>
+                    app.Run(async (context) =>
                     {
                         var user = context.User;
-
-                        if (user.Identity.IsAuthenticated)
-                        {
-                            context.Response.StatusCode = 200;
-                        }
-                        else
-                        {
-                            context.Response.StatusCode = 401;
-                        }
-
-                        return Task.CompletedTask;
+                        var isAuthenticated = user?.Identity?.IsAuthenticated == true;
+                        context.Response.StatusCode = isAuthenticated ? 200 : 401;
                     });
                 }));
         }
